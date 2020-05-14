@@ -1,12 +1,11 @@
-# Step:1 Ubuntu (base image)
-FROM ubuntu:latest
-
-# Step:2 Nginx install
-RUN apt-get update && apt-get install -y -q nginx
-
-# Step:3 file copy
-COPY index.html /usr/share/nginx/html/
-
-# Step:4 Nginx start
-CMD ["nginx", "-g", "daemon off;"]
+FROM ubuntu:14.04
+MAINTAINER "korea-lee <hyunyong.lee@ocmkorea.com>"
+LABEL "purpose"="practice"
+RUN apt-get update
+RUN apt-get install apache2 -y 
+ADD test.html /var/www/html
+WORKDIR /var/www/html
+RUN ["/bin/bash", "-c", "echo hello >> test.html"]
+EXPOSE 80
+CMD apachectl -D FOREGROUND
 
