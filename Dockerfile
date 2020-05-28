@@ -2,7 +2,7 @@
 FROM python:3.6
 
 # Maintainer
-LABEL maintainer "Shiho ASA"
+LABEL maintainer "hyunyong.lee <hylee@dshub.cloud>"
 
 # Upgrade pip
 RUN pip install --upgrade pip
